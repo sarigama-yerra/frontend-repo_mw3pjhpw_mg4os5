@@ -18,29 +18,69 @@
   }
 
   body {
-    @apply antialiased;
+    @apply antialiased bg-slate-950 text-slate-100;
   }
 }
 
-/* Custom utility classes for shadcn/ui patterns */
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-4 py-2 font-semibold shadow-lg shadow-cyan-500/20 hover:from-cyan-400 hover:to-blue-500 transition-colors;
+  }
+  .btn-outline {
+    @apply inline-flex items-center justify-center rounded-lg border border-slate-700/60 px-4 py-2 text-slate-200 hover:border-slate-500 hover:bg-slate-800/60 transition-colors;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center rounded-lg px-4 py-2 text-slate-200 hover:bg-slate-800/60 transition-colors;
+  }
+  .btn-sm {
+    @apply px-3 py-1.5 text-sm;
+  }
+  .btn-icon {
+    @apply inline-flex items-center justify-center rounded-full border border-slate-700/60 bg-slate-900/70 text-slate-200 w-10 h-10 hover:bg-slate-800/80 hover:border-slate-500 transition;
+  }
+  .input {
+    @apply w-full rounded-lg bg-slate-900/70 border border-slate-700/60 px-4 py-2.5 text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/60 focus:border-cyan-500/60;
+  }
+  .label {
+    @apply block mb-1 text-sm text-slate-300;
+  }
+  .tag {
+    @apply inline-flex items-center rounded-full border border-slate-700/60 bg-slate-900/60 px-3 py-1 text-xs text-slate-200;
+  }
+  .section {
+    @apply py-20;
+  }
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  .section-title {
+    @apply text-2xl sm:text-3xl font-extrabold tracking-tight;
+  }
+  .fancy-border {
+    background: linear-gradient(135deg, rgba(34,211,238,0.4), rgba(59,130,246,0.4), rgba(168,85,247,0.4));
+    filter: drop-shadow(0 10px 30px rgba(34,211,238,0.15));
+  }
+  .fancy-ring {
+    background: linear-gradient(135deg, rgba(34,211,238,0.6), rgba(59,130,246,0.6), rgba(168,85,247,0.6));
+  }
+}
+
+/* Subtle enter/exit utilities if needed */
 @layer utilities {
   .animate-in {
     animation-name: animateIn;
     animation-duration: 350ms;
-    --tw-enter-opacity: initial;
-    --tw-enter-scale: initial;
-    --tw-enter-rotate: initial;
-    --tw-enter-translate-x: initial;
-    --tw-enter-translate-y: initial;
   }
-
   .animate-out {
     animation-name: animateOut;
     animation-duration: 350ms;
-    --tw-exit-opacity: initial;
-    --tw-exit-scale: initial;
-    --tw-exit-rotate: initial;
-    --tw-exit-translate-x: initial;
-    --tw-exit-translate-y: initial;
+  }
+  @keyframes animateIn {
+    from { opacity: 0; transform: translateY(8px) scale(0.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  @keyframes animateOut {
+    from { opacity: 1; transform: translateY(0) scale(1); }
+    to { opacity: 0; transform: translateY(-8px) scale(0.98); }
   }
 }
